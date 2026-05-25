@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" data-i18n="meta.description"
+        content="Swarit Tiwari — Mechanical Engineer specialising in Additive Manufacturing, CAD, topology optimization and FEA. Portfolio and projects." />
+  <meta name="author" content="Swarit Tiwari" />
+  <meta property="og:title" content="Swarit Tiwari — Mechanical Engineer" />
+  <meta property="og:description" content="Additive Manufacturing · CAD · Topology Optimization · FEA" />
+  <meta property="og:type" content="website" />
+  <title>Swarit Tiwari — Mechanical Engineer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0e16'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='16' fill='%2322d3ee' text-anchor='middle'%3EST%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <!-- blueprint grid backdrop -->
+  <div class="grid-bg" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="nav__inner container">
+      <a href="#top" class="brand" aria-label="Home">
+        <span class="brand__mark">&lt;ST/&gt;</span>
+        <span class="brand__name">Swarit Tiwari</span>
+      </a>
+
+      <nav class="nav__links" id="navLinks" aria-label="Primary">
+        <a href="#about"><span class="nav__num">01</span> <span data-i18n="nav.about">About</span></a>
+        <a href="#skills"><span class="nav__num">02</span> <span data-i18n="nav.skills">Skills</span></a>
+        <a href="#projects"><span class="nav__num">03</span> <span data-i18n="nav.projects">Projects</span></a>
+        <a href="#experience"><span class="nav__num">04</span> <span data-i18n="nav.experience">Experience</span></a>
+        <a href="#contact"><span class="nav__num">05</span> <span data-i18n="nav.contact">Contact</span></a>
+      </nav>
+
+      <div class="nav__actions">
+        <div class="lang" role="group" aria-label="Language switch">
+          <button class="lang__btn is-active" data-lang="en" type="button">EN</button>
+          <span class="lang__sep">/</span>
+          <button class="lang__btn" data-lang="de" type="button">DE</button>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" type="button">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="container hero__inner">
+        <p class="mono tag-line" data-i18n="hero.kicker">// MECHANICAL ENGINEER · ADDITIVE MANUFACTURING</p>
+        <h1 class="hero__name">Swarit&nbsp;Tiwari</h1>
+        <h2 class="hero__role" data-i18n="hero.role">Mechanical Engineer — Additive Manufacturing &amp; Design</h2>
+        <p class="hero__lead" data-i18n="hero.lead">
+          M.Sc. candidate at TU Hamburg. I design, optimize and 3D-print functional
+          mechanical parts — from topology-optimized structures to single-print mechanisms.
+        </p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#projects" data-i18n="hero.cta1">View Projects</a>
+          <a class="btn btn--ghost" href="#contact" data-i18n="hero.cta2">Get in Touch</a>
+        </div>
+
+        <ul class="hero__stats">
+          <li><span class="stat__num">5</span><span class="stat__label mono" data-i18n="hero.stat1">PROJECTS</span></li>
+          <li><span class="stat__num">35<small>%</small></span><span class="stat__label mono" data-i18n="hero.stat2">WASTE REDUCED</span></li>
+          <li><span class="stat__num">75<small>%</small></span><span class="stat__label mono" data-i18n="hero.stat3">LESS DOC. TIME</span></li>
+          <li><span class="stat__num">2<small>nd</small></span><span class="stat__label mono" data-i18n="hero.stat4">HACKATHON</span></li>
+        </ul>
+      </div>
+      <div class="scroll-hint mono" aria-hidden="true">SCROLL ↓</div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="section reveal">
+      <div class="container">
+        <h2 class="section__title"><span class="section__num mono">01</span> <span data-i18n="about.title">About</span></h2>
+        <div class="about">
+          <div class="about__body">
+            <p data-i18n="about.p1">
+              I'm a mechanical engineering M.Sc. student at the Technical University of Hamburg (TUHH),
+              with a bachelor's background from Gujarat Technological University, India. My work centres on
+              <strong>Design for Additive Manufacturing (DfAM)</strong> — turning real constraints into
+              printable, functional hardware.
+            </p>
+            <p data-i18n="about.p2">
+              Across my projects I've engineered single-print moving mechanisms, run topology optimization
+              and FEA to cut mass without losing strength, and led a six-month maritime decarbonization
+              research project. I'm equally comfortable in CAD, in the slicer, and managing a team on a
+              Kanban board.
+            </p>
+            <p data-i18n="about.p3">
+              I like problems where the manufacturing method and the design have to be solved together —
+              that's where additive manufacturing is most powerful.
+            </p>
+          </div>
+          <aside class="about__panel">
+            <h3 class="mono panel__title" data-i18n="about.facts">// QUICK FACTS</h3>
+            <dl class="facts">
+              <div><dt class="mono" data-i18n="about.f_location">LOCATION</dt><dd data-i18n="about.f_location_v">Hamburg, Germany</dd></div>
+              <div><dt class="mono" data-i18n="about.f_focus">FOCUS</dt><dd data-i18n="about.f_focus_v">Additive Manufacturing · DfAM</dd></div>
+              <div><dt class="mono" data-i18n="about.f_cad">CAD</dt><dd>Fusion 360 · SolidWorks</dd></div>
+              <div><dt class="mono" data-i18n="about.f_lang">LANGUAGES</dt><dd data-i18n="about.f_lang_v">English · German · Hindi</dd></div>
+            </dl>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section id="skills" class="section reveal">
+      <div class="container">
+        <h2 class="section__title"><span class="section__num mono">02</span> <span data-i18n="skills.title">Skills</span></h2>
+        <div class="skills" id="skillsGrid"><!-- rendered by JS --></div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section id="projects" class="section reveal">
+      <div class="container">
+        <h2 class="section__title"><span class="section__num mono">03</span> <span data-i18n="projects.title">Projects</span></h2>
+        <p class="section__lead" data-i18n="projects.lead">Selected engineering work — CAD, additive manufacturing and research.</p>
+        <div class="projects" id="projectsGrid"><!-- rendered by JS --></div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE / EDUCATION ============ -->
+    <section id="experience" class="section reveal">
+      <div class="container">
+        <h2 class="section__title"><span class="section__num mono">04</span> <span data-i18n="experience.title">Experience &amp; Education</span></h2>
+        <div class="timeline" id="timeline"><!-- rendered by JS --></div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="section reveal">
+      <div class="container">
+        <h2 class="section__title"><span class="section__num mono">05</span> <span data-i18n="contact.title">Contact</span></h2>
+        <div class="contact">
+          <p class="contact__lead" data-i18n="contact.lead">
+            Open to internships, working-student roles and collaboration in additive manufacturing,
+            product design and simulation.
+          </p>
+          <div class="contact__links" id="contactLinks"><!-- rendered by JS --></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="mono">© <span id="year"></span> Swarit Tiwari</span>
+      <span class="mono footer__built" data-i18n="footer.built">Built with HTML · CSS · JS</span>
+    </div>
+  </footer>
+
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
