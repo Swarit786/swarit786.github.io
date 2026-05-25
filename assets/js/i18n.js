@@ -16,7 +16,7 @@ window.PORTFOLIO = {
       "hero.stat1": "PROJECTS", "hero.stat2": "WASTE REDUCED", "hero.stat3": "LESS DOC. TIME", "hero.stat4": "HACKATHON",
       "about.title": "About",
       "about.p1": "I'm a mechanical engineering M.Sc. student at the Technical University of Hamburg (TUHH), with a bachelor's background from Gujarat Technological University, India. My work centres on <strong>Design for Additive Manufacturing (DfAM)</strong> — turning real constraints into printable, functional hardware.",
-      "about.p2": "Across my projects I've engineered single-print moving mechanisms, run topology optimization and FEA to cut mass without losing strength, and led a six-month maritime decarbonization research project. I'm equally comfortable in CAD, in the slicer, and managing a team on a Kanban board.",
+      "about.p2": "Across my projects I've engineered single-print moving mechanisms, run topology optimization and FEA to cut mass without losing strength, and led a six-month maritime decarbonization research project. I'm equally comfortable in CAD, in the slicer, managing a team on a Kanban board — or building a Python pipeline when the problem calls for it.",
       "about.p3": "I like problems where the manufacturing method and the design have to be solved together — that's where additive manufacturing is most powerful.",
       "about.facts": "// QUICK FACTS",
       "about.f_location": "LOCATION", "about.f_location_v": "Hamburg, Germany",
