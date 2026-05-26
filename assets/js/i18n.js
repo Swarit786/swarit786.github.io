@@ -239,12 +239,12 @@ window.PORTFOLIO = {
 
   /* ---- CV files (per language) ---- */
   cvFiles: {
-    en: "assets/cv/CV_Swarit_Tiwari_EN.pdf",
+    en: "assets/cv/CV_Swarit_Tiwari_EN_2026.pdf",
     de: "assets/cv/Lebenslauf_Swarit_Tiwari_DE.pdf"
   },
   /* rendered CV page images (reliable in-page view on mobile) */
   cvPages: {
-    en: ["assets/cv/cv_en_1.png"],
+    en: ["assets/cv/cv_en_2026_1.png"],
     de: ["assets/cv/cv_de_1.png"]
   },
 
