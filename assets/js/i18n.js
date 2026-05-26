@@ -252,7 +252,6 @@ window.PORTFOLIO = {
   github_user: "Swarit786",
   contact: [
     { key: "EMAIL", value: "erswarittiwari@gmail.com", href: "mailto:erswarittiwari@gmail.com", icon: "mail" },
-    { key: "PHONE", value: "+49 176 66155837", href: "tel:+4917666155837", icon: "phone" },
     { key: "LINKEDIN", value: "in/swarit-tiwari", href: "https://www.linkedin.com/in/swarit-tiwari-942153171", icon: "linkedin" },
     { key: "GITHUB", value: "github.com/Swarit786", href: "https://github.com/Swarit786", icon: "github" }
   ]
