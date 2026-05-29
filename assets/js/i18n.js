@@ -91,6 +91,16 @@ window.PORTFOLIO = {
   /* ---- featured projects (GitHub) ---- */
   projects: [
     {
+      year: "2026", img: "https://raw.githubusercontent.com/Swarit786/parametric-bracket-generator/main/docs/bracket_A.jpg", repo: "parametric-bracket-generator",
+      title: { en: "Parametric Bracket Generator", de: "Parametrischer Halterungs-Generator" },
+      role: { en: "CAD Automation · Fusion 360 API", de: "CAD-Automatisierung · Fusion 360 API" },
+      desc: {
+        en: "Fusion 360 Python script that generates mounting plates from CSV rows and exports manufacturer-ready STEP files. The workflow turns repeated bracket variants into a spreadsheet-driven CAD automation task.",
+        de: "Fusion-360-Python-Skript, das Halterungsplatten aus CSV-Zeilen erzeugt und fertigungsgerechte STEP-Dateien exportiert. Der Workflow macht wiederholte Varianten zu einer tabellengesteuerten CAD-Automatisierung."
+      },
+      tags: ["Python", "Fusion 360 API", "CSV", "STEP"]
+    },
+    {
       year: "2025/26", img: "assets/img/nlp_reviews.svg", repo: "restaurant-review-nlp",
       title: { en: "Restaurant Review NLP — Sentiment &amp; Topics", de: "Restaurant-Bewertungen NLP — Sentiment &amp; Themen" },
       role: { en: "Master Thesis · NLP / Data Science", de: "Masterarbeit · NLP / Data Science" },
