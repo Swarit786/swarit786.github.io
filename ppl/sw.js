@@ -1,5 +1,5 @@
 /* Swarit's Workout Routine service worker — cache-first shell so the app opens with no signal. */
-var CACHE = 'swarit-workout-v4';
+var CACHE = 'swarit-workout-v7';
 var SHELL = [
   './',
   './index.html',

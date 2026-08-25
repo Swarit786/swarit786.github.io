@@ -84,6 +84,22 @@
   .tab:focus-visible, .endbtn:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 
   /* ---------- exercise ---------- */
+  .overview {
+    display: flex; background: var(--surface); border: 1px solid var(--line);
+    border-radius: 12px; margin-top: 14px; overflow: hidden;
+  }
+  .ovcell { flex: 1; text-align: center; padding: 13px 4px; border-right: 1px solid var(--line); }
+  .ovcell:last-child { border-right: 0; }
+  .ovnum { font-family: var(--mono); font-size: 22px; font-weight: 700; letter-spacing: -.02em; }
+  .ovlab {
+    font-family: var(--mono); font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--text-3); margin-top: 2px;
+  }
+  .sstag {
+    color: #E2A33C; letter-spacing: .12em; margin-left: 8px; font-weight: 700;
+  }
+  .rlabel.ss, .rtime.ss { color: #E2A33C; }
+  .exspec b { color: var(--text-2); font-weight: 700; letter-spacing: .06em; }
   .series {
     font-family: var(--mono); font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
     color: var(--text-3); margin: 20px 0 7px;
@@ -270,65 +286,73 @@
 
   var PLAN = {
     push: { label: 'Push day', ex: [
-      { id: 'p1', name: 'Smith machine incline press', sets: 4, spec: '3–4 × 8–10',
+      { id: 'p1', name: 'Smith machine incline bench press', reps: [15, 12, 10, 8],
         alts: ['Barbell incline press', 'Incline DB press', 'Incline chest press machine'] },
-      { id: 'p2', name: 'Hammer Strength flat press', sets: 3, spec: '3 × 8–10',
+      { id: 'p2', name: 'Hammer Strength flat chest press', reps: [12, 12, 10],
         alts: ['Flat DB press', 'Smith flat press', 'Machine chest press'] },
-      { id: 'p3', name: 'Pec-deck fly', sets: 3, spec: '3 × 10–12',
+      { id: 'p3', name: 'Pec deck', reps: [12, 12, 10],
         alts: ['Cable fly, high to low', 'Cable crossover', 'Incline DB fly'] },
-      { id: 'p4', name: 'Machine or DB lateral raise', sets: 3, spec: '3 × 10–15 + partials',
-        alts: ['DB lateral raise', 'Machine lateral raise', 'Leaning DB lateral raise'] },
-      { id: 'p5', name: 'Behind-the-back cable lateral raise', sets: 2, spec: '2 × 12–15',
-        alts: ['Neutral-grip lateral raise', 'Cable lateral raise across body', 'Cable Y-raise'] },
-      { id: 'p6', name: 'Overhead rope or DB extension', sets: 3, spec: '3 × 10–12',
+      { id: 'p4', name: 'Standing DB side lateral raise', reps: [12, 12, 10], ss: 'D', ssPos: 1,
+        alts: ['Machine lateral raise', 'Cable lateral raise', 'Leaning DB lateral raise'] },
+      { id: 'p5', name: 'DB side lateral partials', reps: [12, 12, 10], ss: 'D', ssPos: 2,
+        alts: ['Partials on the machine', 'Cable partials', 'Static hold at the top'] },
+      { id: 'p6', name: 'Single-arm leaning cable side raise', reps: [12, 12],
+        alts: ['Behind-the-back cable lateral raise', 'Neutral-grip lateral raise', 'Cable Y-raise'] },
+      { id: 'p7', name: 'Cable rope overhead tricep extension', reps: [12, 12, 10], ss: 'F', ssPos: 1,
         alts: ['Two-hand overhead DB extension', 'EZ-bar skullcrusher', 'Single-arm overhead cable'] },
-      { id: 'p7', name: 'Rope pushdown', sets: 3, spec: '3 × 10–15',
+      { id: 'p8', name: 'Cable rope tricep pushdown', reps: [10, 10, 10], ss: 'F', ssPos: 2,
         alts: ['Straight-bar pushdown', 'Single-arm cable pushdown', 'Dip machine'] }
     ]},
     pull: { label: 'Pull day', ex: [
-      { id: 'l1', name: 'Lat pulldown', sets: 4, spec: '3–4 × 8–12',
-        alts: ['Neutral-grip pulldown', 'Assisted pull-up', 'Single-arm lat pulldown'] },
-      { id: 'l2', name: 'Chest-supported row or T-bar row', sets: 4, spec: '3–4 × 8–12',
-        alts: ['T-bar row', 'Chest-supported DB row', 'Machine row'] },
-      { id: 'l3', name: 'Close-grip cable row', sets: 3, spec: '3 × 8–12',
-        alts: ['Seated machine row', 'Single-arm DB row', 'Wide-grip cable row'] },
-      { id: 'l4', name: 'Rear-delt fly', sets: 4, spec: '4 × 12–15',
-        alts: ['Reverse pec-deck', 'Cable rear-delt fly', 'Chest-supported DB rear fly'] },
-      { id: 'l5', name: 'Face pull + shrug', sets: 3, spec: '2–3 × 15–20 / 10–15',
-        alts: ['Cable face pull only', 'Band pull-apart + shrug', 'DB shrug only'] },
-      { id: 'l6', name: 'Hyperextension or half deadlift', sets: 3, spec: '3 × 8–12',
-        alts: ['45° hyperextension', 'Half deadlift / rack pull', 'Light good morning'] },
-      { id: 'l7', name: 'Incline DB curl', sets: 3, spec: '3 × 8–12',
-        alts: ['Bayesian cable curl', 'Preacher curl', 'Standing DB curl'] },
-      { id: 'l8', name: 'Hammer or reverse curl', sets: 3, spec: '2–3 × 10–12',
-        alts: ['Rope hammer curl', 'Reverse EZ-bar curl', 'Cross-body hammer curl'] }
+      { id: 'l1', name: 'Lat pulldown, subscapularis bias', reps: [12, 12, 10, 8], ss: 'A', ssPos: 1,
+        alts: ['Wide-grip lat pulldown', 'Neutral-grip pulldown', 'Assisted pull-up'] },
+      { id: 'l2', name: 'Underhand lat pulldown', reps: [12, 12, 10], ss: 'A', ssPos: 2,
+        alts: ['Close neutral-grip pulldown', 'Single-arm lat pulldown', 'Assisted chin-up'] },
+      { id: 'l3', name: 'Chest-supported wide semi-pronated row', reps: [12, 12, 10],
+        alts: ['T-bar row', 'Machine row', 'Chest-supported DB row'] },
+      { id: 'l4', name: 'Seated close-grip cable row', reps: [12, 12, 10],
+        alts: ['Seated machine row', 'Single-arm cable row', 'Wide-grip cable row'] },
+      { id: 'l5', name: 'Chest-supported incline DB rear-delt fly', reps: [12, 12, 10],
+        alts: ['Reverse pec-deck', 'Cable rear-delt fly', 'Prone incline DB fly'] },
+      { id: 'l6', name: 'Cable rope face pull', reps: [12, 12, 10],
+        alts: ['Reverse pec-deck', 'Cable rear-delt fly', 'Band pull-apart'] },
+      { id: 'l7', name: 'Trap bar deadlift, high handle', reps: [12, 12, 10],
+        alts: ['Half deadlift / rack pull', '45° hyperextension', 'Light good morning'] },
+      { id: 'l8', name: 'Seated DB curl', reps: [12, 12, 10],
+        alts: ['Incline DB curl', 'Preacher curl', 'Bayesian cable curl'] },
+      { id: 'l9', name: 'EZ-bar reverse grip curl', reps: [12, 12, 10], ss: 'H', ssPos: 1,
+        alts: ['Reverse cable curl', 'Reverse DB curl', 'Wrist roller'] },
+      { id: 'l10', name: 'Standing DB hammer curl', reps: [10, 10, 10], ss: 'H', ssPos: 2,
+        alts: ['Rope hammer curl', 'Cross-body hammer curl', 'Seated hammer curl'] }
     ]},
     legs: { label: 'Legs day', ex: [
-      { id: 'g1', name: 'Barbell heels-elevated squat', sets: 4, spec: '3–4 × 8–10',
-        alts: ['Box squat', 'Hack squat', 'Smith heels-elevated squat', 'Leg press, both legs'] },
-      { id: 'g2', name: 'Romanian deadlift', sets: 4, spec: '3–4 × 8–10',
-        alts: ['DB Romanian deadlift', 'Cable pull-through', 'Light good morning'] },
-      { id: 'g3', name: 'Leg press — one leg at a time', sets: 3, spec: '3 × 10–12 / leg',
-        alts: ['Bulgarian split squat', 'Walking lunge', 'Single-leg hack squat'] },
-      { id: 'g4', name: 'Lying or seated hamstring curl', sets: 3, spec: '3 × 10–15',
-        alts: ['Seated hamstring curl', 'Lying hamstring curl', 'Assisted Nordic curl'] },
-      { id: 'g5', name: 'Abductor + adductor machine', sets: 3, spec: '3 × 12–15',
-        alts: ['Cable hip abduction', 'Banded lateral walk', 'Copenhagen plank'] },
-      { id: 'g6', name: 'Seated calf raise', sets: 4, spec: '3–4 × 10–15',
+      { id: 'g1', name: 'Barbell box squat', reps: [12, 10, 10, 8],
+        alts: ['Barbell heels-elevated squat', 'Hack squat', 'Smith box squat', 'Leg press, both legs'] },
+      { id: 'g2', name: 'DB Romanian deadlift', reps: [12, 12, 10],
+        alts: ['Barbell RDL', 'Cable pull-through', 'Light good morning'] },
+      { id: 'g3', name: 'Leg press, medium stance', reps: [12, 12, 10],
+        alts: ['Leg press, one leg at a time', 'Bulgarian split squat', 'Hack squat'] },
+      { id: 'g4', name: 'Lying hamstring curl', reps: [12, 10, 10],
+        alts: ['Seated hamstring curl', 'Assisted Nordic curl', 'Single-leg lying curl'] },
+      { id: 'g5', name: 'Single-leg extension', reps: [12, 12, 10],
+        alts: ['Both-leg extension', 'Sissy squat', 'Cyclist squat'] },
+      { id: 'g6', name: 'Abduction machine', reps: [12, 12, 10],
+        alts: ['Abductor + adductor machine', 'Cable hip abduction', 'Banded lateral walk'] },
+      { id: 'g7', name: 'Seated calf raise machine', reps: [12, 12, 10],
         alts: ['Standing calf raise', 'Leg press calf raise', 'Single-leg calf raise'] },
-      { id: 'g7', name: 'Machine crunches', sets: 3, spec: '3 × 12–20',
-        alts: ['Cable crunch', 'Weighted decline crunch', 'Hanging knee raise'] },
-      { id: 'g8', name: 'Leg raise + suitcase carry', sets: 3, spec: '2–3 × 10–15 / 30 s',
-        alts: ['Hanging leg raise + carry', 'Captain\'s chair raise', 'Suitcase carry only'] }
+      { id: 'g8', name: 'Plank', reps: [30, 30, 30], unit: 'sec', ss: 'H', ssPos: 1,
+        alts: ['Suitcase carry', 'Pallof press', 'Side plank'] },
+      { id: 'g9', name: 'Decline sit-up', reps: [10, 10, 10], ss: 'H', ssPos: 2,
+        alts: ['Machine crunch', 'Cable crunch', 'Hanging knee raise'] }
     ]}
   };
 
   var SERIES = 'ABCDEFGHIJ';
-  var REST_SET = 90, REST_EX = 180;
+  var REST_SET = 90, REST_EX = 180, REST_SS = 15;
   var K_SESSIONS = 'ppl:sessions', K_DRAFT = 'ppl:draft';
 
   var state = { view: 'push', sessions: [], draft: null, saveTimer: null, storageOK: true, swapOpen: null };
-  var rest = { left: 0, running: false, tick: null, mode: 'set', row: null };
+  var rest = { left: 0, running: false, tick: null, mode: 'set', row: null, nextLabel: '' };
   var clockTick = null;
 
   var main = document.getElementById('main');
@@ -380,7 +404,7 @@
     var d = { day: day, started: null, notes: '', ex: {}, variant: {} };
     PLAN[day].ex.forEach(function (e) {
       d.ex[e.id] = [];
-      for (var i = 0; i < e.sets; i++) d.ex[e.id].push({ w: '', r: '', done: false });
+      for (var i = 0; i < e.reps.length; i++) d.ex[e.id].push({ w: '', r: '', done: false });
     });
     return d;
   }
@@ -390,7 +414,7 @@
     PLAN[day].ex.forEach(function (e) {
       if (!Array.isArray(state.draft.ex[e.id])) {
         state.draft.ex[e.id] = [];
-        for (var i = 0; i < e.sets; i++) state.draft.ex[e.id].push({ w: '', r: '', done: false });
+        for (var i = 0; i < e.reps.length; i++) state.draft.ex[e.id].push({ w: '', r: '', done: false });
       }
     });
     return state.draft;
@@ -410,6 +434,56 @@
     var s = Math.floor(ms / 1000), h = Math.floor(s / 3600), m = Math.round((s % 3600) / 60);
     return h > 0 ? h + ' h ' + m + ' min' : m + ' min';
   }
+  function partnerOf(day, e) {
+    if (!e.ss) return null;
+    var found = null;
+    PLAN[day].ex.forEach(function (o) {
+      if (o.id !== e.id && o.ss === e.ss) found = o;
+    });
+    return found;
+  }
+
+  /* Flat performance order. Superset members alternate: H1.1, H2.1, H1.2, H2.2 ... */
+  function flatOrder(day) {
+    var d = ensureDraft(day), out = [], seen = {};
+    PLAN[day].ex.forEach(function (e) {
+      if (seen[e.id]) return;
+      if (e.ss && e.ssPos === 1) {
+        var p = partnerOf(day, e);
+        if (p) {
+          seen[p.id] = 1;
+          var n = Math.max(d.ex[e.id].length, d.ex[p.id].length);
+          for (var j = 0; j < n; j++) {
+            if (d.ex[e.id][j]) out.push({ ex: e.id, row: j });
+            if (d.ex[p.id][j]) out.push({ ex: p.id, row: j });
+          }
+          return;
+        }
+      }
+      d.ex[e.id].forEach(function (_, j) { out.push({ ex: e.id, row: j }); });
+    });
+    return out;
+  }
+
+  /* A, B, C ... where a superset pair takes one letter: D1 / D2 */
+  function seriesLabels(day) {
+    var map = {}, li = 0, used = {};
+    PLAN[day].ex.forEach(function (e) {
+      if (used[e.id]) return;
+      if (e.ss) {
+        var letter = e.ss;
+        PLAN[day].ex.forEach(function (o) {
+          if (o.ss === e.ss) { map[o.id] = letter + o.ssPos; used[o.id] = 1; }
+        });
+        li++;
+      } else {
+        map[e.id] = SERIES[li] || '?';
+        li++;
+      }
+    });
+    return map;
+  }
+
   function defaultName(exId) {
     var e = findEx(exId);
     return e ? e.name : exId;
@@ -459,16 +533,30 @@
     return n;
   }
   function activeIndex(day) {
-    var d = ensureDraft(day), plan = PLAN[day], idx = 0;
-    for (var i = 0; i < plan.ex.length; i++) {
-      var rows = d.ex[plan.ex[i].id];
-      for (var j = 0; j < rows.length; j++) {
-        if (!rows[j].done) return { ex: plan.ex[i].id, row: j, n: idx };
-        idx++;
+    var d = ensureDraft(day), order = flatOrder(day);
+    for (var i = 0; i < order.length; i++) {
+      var o = order[i];
+      if (d.ex[o.ex] && d.ex[o.ex][o.row] && !d.ex[o.ex][o.row].done) {
+        return { ex: o.ex, row: o.row, n: i };
       }
     }
     return null;
   }
+
+  function estMinutes(day) {
+    var d = ensureDraft(day), secs = 0;
+    PLAN[day].ex.forEach(function (e) {
+      var rows = d.ex[e.id] || [];
+      rows.forEach(function (_, j) {
+        var work = e.unit === 'sec' ? (e.reps[j] || 30) : 40;
+        var r = (e.ss && e.ssPos === 1) ? REST_SS
+              : (j === rows.length - 1 ? REST_EX : REST_SET);
+        secs += work + r;
+      });
+    });
+    return Math.round(secs / 60 / 5) * 5;
+  }
+
   function paintCounts() {
     if (state.view === 'history') return;
     var day = state.view, tot = totalSets(day), dn = doneSets(day);
@@ -495,7 +583,7 @@
   /* ---------- rest ---------- */
   function startRest(mode, rowKey) {
     rest.mode = mode; rest.row = rowKey;
-    rest.left = mode === 'exercise' ? REST_EX : REST_SET;
+    rest.left = mode === 'exercise' ? REST_EX : (mode === 'superset' ? REST_SS : REST_SET);
     rest.running = true;
     if (rest.tick) clearInterval(rest.tick);
     rest.tick = setInterval(function () {
@@ -508,10 +596,14 @@
   function endRest(fired) {
     if (rest.tick) clearInterval(rest.tick);
     rest.running = false; rest.left = 0;
-    var wasEx = rest.mode === 'exercise';
-    rest.row = null;
+    var mode = rest.mode, nxt = rest.nextLabel;
+    rest.row = null; rest.nextLabel = '';
     paintBar(); paintRowRest();
-    if (fired) toast(wasEx ? 'Rest done — next exercise' : 'Rest done — next set');
+    if (fired) {
+      if (mode === 'superset') toast('Go — ' + (nxt || 'second exercise'));
+      else if (mode === 'exercise') toast('Rest done — next exercise');
+      else toast('Rest done — next set');
+    }
   }
   function mmss(n) { return Math.floor(n / 60) + ':' + String(n % 60).padStart(2, '0'); }
   function paintRowRest() {
@@ -532,10 +624,12 @@
     var started = state.draft && state.draft.started;
 
     if (rest.running) {
-      barIn.innerHTML = '<div class="resting"><div class="rlabel">' +
-        (rest.mode === 'exercise' ? 'Rest — next exercise' : 'Rest — next set') +
-        '</div><div class="rtime">' + mmss(rest.left) + '</div></div>' +
-        '<button class="skip" id="skipBtn">Skip rest</button>';
+      var lbl = rest.mode === 'exercise' ? 'Rest — next exercise'
+              : rest.mode === 'superset' ? 'Superset — up next: ' + (rest.nextLabel || '')
+              : 'Rest — next set';
+      barIn.innerHTML = '<div class="resting"><div class="rlabel' + (rest.mode === 'superset' ? ' ss' : '') + '">' + esc(lbl) +
+        '</div><div class="rtime' + (rest.mode === 'superset' ? ' ss' : '') + '">' + mmss(rest.left) + '</div></div>' +
+        '<button class="skip" id="skipBtn">' + (rest.mode === 'superset' ? 'Go now' : 'Skip rest') + '</button>';
       document.getElementById('skipBtn').onclick = function () { endRest(false); };
       return;
     }
@@ -599,7 +693,14 @@
     if (state.view === 'history') { renderHistory(); return; }
     var day = state.view, plan = PLAN[day], draft = ensureDraft(day);
     var act = activeIndex(day);
-    var html = '';
+    var labels = seriesLabels(day);
+    var tot = totalSets(day);
+    var mins = estMinutes(day);
+    var html = '<div class="overview">' +
+      '<div class="ovcell"><div class="ovnum">' + plan.ex.length + '</div><div class="ovlab">Exercises</div></div>' +
+      '<div class="ovcell"><div class="ovnum">' + tot + '</div><div class="ovlab">Sets</div></div>' +
+      '<div class="ovcell"><div class="ovnum">' + mins + '</div><div class="ovlab">Minutes</div></div>' +
+      '</div>';
 
     plan.ex.forEach(function (e, i) {
       var prev = lastSetsFor(e.id, day);
@@ -616,6 +717,10 @@
 
       var vName = variantOf(e.id);
       var swapped = vName !== e.name;
+      var unit = e.unit === 'sec' ? 's' : '';
+      var schemeStr = e.reps.join('  ');
+      var slabel = labels[e.id] || SERIES[i];
+      var ssTag = e.ss ? '<span class="sstag">Superset</span>' : '';
       var opts = [e.name].concat(e.alts || []);
       var open = state.swapOpen === e.id;
 
@@ -628,22 +733,24 @@
         }).join('') + '</div>';
       }
 
-      html += '<div class="series">' + SERIES[i] + ' Series</div>' +
+      html += '<div class="series">' + slabel + ' Series ' + ssTag + '</div>' +
         '<div class="exhead"><div style="flex:1"><h2 class="exname">' + esc(vName) + '</h2>' +
-        '<div class="exspec">TARGET ' + e.spec + (swapped ? ' · SWAPPED' : '') + '</div>' +
+        '<div class="exspec">Reps: <b>' + schemeStr + '</b>' + (unit ? ' ' + unit : '') +
+        (swapped ? ' · SWAPPED' : '') + '</div>' +
         '<div class="prevline"><span class="prevlabel">Beat</span>' + pills + '</div></div>' +
         '<button class="swapbtn' + (open ? ' open' : '') + '" data-swap="' + e.id + '" aria-label="Swap exercise">⇅</button>' +
         '</div>' + panel +
-        '<div class="thead"><span>Reps</span><span>Weight</span><span>Rest</span><span>Log it</span></div>';
+        '<div class="thead"><span>' + (e.unit === 'sec' ? 'Seconds' : 'Reps') + '</span><span>Weight</span><span>Rest</span><span>Log it</span></div>';
 
       rows.forEach(function (s, j) {
         var isActive = act && act.ex === e.id && act.row === j;
         var isLast = j === rows.length - 1;
-        var defRest = (isLast ? REST_EX : REST_SET) + 's';
+        var defRest = (e.ss && e.ssPos === 1) ? REST_SS + 's' : (isLast ? REST_EX : REST_SET) + 's';
+        var target = e.reps[j] !== undefined ? e.reps[j] : '';
         var pv = prev ? prev.sets[j] : null;
         var beat = s.done && beatsPrev(s, pv);
         html += '<div class="row' + (isActive ? ' active' : '') + (s.done ? ' done' : '') + '">' +
-          '<input class="f" inputmode="numeric" data-ex="' + e.id + '" data-i="' + j + '" data-f="r" value="' + (s.r || '') + '" placeholder="' + (pv && num(pv.r) !== null ? pv.r : '—') + '" aria-label="Reps set ' + (j + 1) + '">' +
+          '<input class="f" inputmode="numeric" data-ex="' + e.id + '" data-i="' + j + '" data-f="r" value="' + (s.r || '') + '" placeholder="' + (pv && num(pv.r) !== null ? pv.r : target) + '" aria-label="Reps set ' + (j + 1) + '">' +
           '<input class="f" inputmode="decimal" data-ex="' + e.id + '" data-i="' + j + '" data-f="w" value="' + (s.w || '') + '" placeholder="' + (pv && num(pv.w) !== null ? pv.w + ' kg' : 'kg') + '" aria-label="Weight set ' + (j + 1) + '">' +
           '<div class="restcell" data-rest="' + e.id + '-' + j + '" data-default="' + defRest + '">' + defRest + '</div>' +
           '<button class="logit' + (s.done ? ' done' : '') + (beat ? ' beat' : '') + '" data-log="' + e.id + '-' + j + '" aria-label="Log set ' + (j + 1) + '">' + checkSVG() + '</button>' +
@@ -732,8 +839,15 @@
       row.done = !row.done;
       if (row.done) {
         if (!state.draft.started) { state.draft.started = Date.now(); startClock(); }
+        var eObj = findEx(exId);
         var isLast = j === state.draft.ex[exId].length - 1;
-        startRest(isLast ? 'exercise' : 'set', logKey);
+        var partner = eObj ? partnerOf(state.view, eObj) : null;
+        if (eObj && eObj.ss && eObj.ssPos === 1 && partner) {
+          rest.nextLabel = variantOf(partner.id);
+          startRest('superset', logKey);
+        } else {
+          startRest(isLast ? 'exercise' : 'set', logKey);
+        }
       } else if (rest.row === logKey) {
         endRest(false);
       }
