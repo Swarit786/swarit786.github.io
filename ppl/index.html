@@ -84,6 +84,13 @@
   .tab:focus-visible, .endbtn:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 
   /* ---------- exercise ---------- */
+  .inf { color: #E2A33C; font-weight: 700; }
+  .legend {
+    font-family: var(--mono); font-size: 10.5px; color: var(--text-3);
+    margin-top: 8px; padding: 0 2px; letter-spacing: .02em;
+  }
+  .row.tofail input.f { border-color: #4A3A1B; }
+  .row.tofail.active input.f { border-color: #E2A33C; }
   .overview {
     display: flex; background: var(--surface); border: 1px solid var(--line);
     border-radius: 12px; margin-top: 14px; overflow: hidden;
@@ -290,40 +297,35 @@
         alts: ['Barbell incline press', 'Incline DB press', 'Incline chest press machine'] },
       { id: 'p2', name: 'Hammer Strength flat chest press', reps: [12, 12, 10],
         alts: ['Flat DB press', 'Smith flat press', 'Machine chest press'] },
-      { id: 'p3', name: 'Pec deck', reps: [12, 12, 10],
+      { id: 'p3', name: 'Pec deck', reps: [12, 12, '∞'],
         alts: ['Cable fly, high to low', 'Cable crossover', 'Incline DB fly'] },
-      { id: 'p4', name: 'Standing DB side lateral raise', reps: [12, 12, 10], ss: 'D', ssPos: 1,
+      { id: 'p4', name: 'Standing DB side lateral raise', reps: [12, 12, '∞'], ss: 'D', ssPos: 1,
         alts: ['Machine lateral raise', 'Cable lateral raise', 'Leaning DB lateral raise'] },
-      { id: 'p5', name: 'DB side lateral partials', reps: [12, 12, 10], ss: 'D', ssPos: 2,
+      { id: 'p5', name: 'DB side lateral partials', reps: ['∞', '∞', '∞'], ss: 'D', ssPos: 2,
         alts: ['Partials on the machine', 'Cable partials', 'Static hold at the top'] },
-      { id: 'p6', name: 'Single-arm leaning cable side raise', reps: [12, 12],
+      { id: 'p6', name: 'Single-arm leaning cable side raise', reps: [12, '∞'],
         alts: ['Behind-the-back cable lateral raise', 'Neutral-grip lateral raise', 'Cable Y-raise'] },
-      { id: 'p7', name: 'Cable rope overhead tricep extension', reps: [12, 12, 10], ss: 'F', ssPos: 1,
-        alts: ['Two-hand overhead DB extension', 'EZ-bar skullcrusher', 'Single-arm overhead cable'] },
-      { id: 'p8', name: 'Cable rope tricep pushdown', reps: [10, 10, 10], ss: 'F', ssPos: 2,
+      { id: 'p7', name: 'Cable rope overhead tricep extension', reps: [12, 12, '∞'],
+        alts: ['EZ-bar extension behind the head', 'Lying DB extension past the head',
+               'Single-arm overhead cable', 'Seated two-hand DB extension'] },
+      { id: 'p8', name: 'Cable rope tricep pushdown', reps: [10, 10, '∞'],
         alts: ['Straight-bar pushdown', 'Single-arm cable pushdown', 'Dip machine'] }
     ]},
     pull: { label: 'Pull day', ex: [
-      { id: 'l1', name: 'Lat pulldown, subscapularis bias', reps: [12, 12, 10, 8], ss: 'A', ssPos: 1,
-        alts: ['Wide-grip lat pulldown', 'Neutral-grip pulldown', 'Assisted pull-up'] },
-      { id: 'l2', name: 'Underhand lat pulldown', reps: [12, 12, 10], ss: 'A', ssPos: 2,
-        alts: ['Close neutral-grip pulldown', 'Single-arm lat pulldown', 'Assisted chin-up'] },
+      { id: 'l1', name: 'Lat pulldown, subscapularis bias', reps: [12, 12, 10, 8],
+        alts: ['Wide-grip lat pulldown', 'Neutral-grip pulldown', 'Underhand lat pulldown', 'Assisted pull-up'] },
       { id: 'l3', name: 'Chest-supported wide semi-pronated row', reps: [12, 12, 10],
         alts: ['T-bar row', 'Machine row', 'Chest-supported DB row'] },
       { id: 'l4', name: 'Seated close-grip cable row', reps: [12, 12, 10],
         alts: ['Seated machine row', 'Single-arm cable row', 'Wide-grip cable row'] },
-      { id: 'l5', name: 'Chest-supported incline DB rear-delt fly', reps: [12, 12, 10],
+      { id: 'l5', name: 'Chest-supported incline DB rear-delt fly', reps: [12, 12, '∞'],
         alts: ['Reverse pec-deck', 'Cable rear-delt fly', 'Prone incline DB fly'] },
-      { id: 'l6', name: 'Cable rope face pull', reps: [12, 12, 10],
+      { id: 'l6', name: 'Cable rope face pull', reps: [12, 12, '∞'],
         alts: ['Reverse pec-deck', 'Cable rear-delt fly', 'Band pull-apart'] },
-      { id: 'l7', name: 'Trap bar deadlift, high handle', reps: [12, 12, 10],
-        alts: ['Half deadlift / rack pull', '45° hyperextension', 'Light good morning'] },
-      { id: 'l8', name: 'Seated DB curl', reps: [12, 12, 10],
+      { id: 'l8', name: 'Seated DB curl', reps: [12, 12, '∞'],
         alts: ['Incline DB curl', 'Preacher curl', 'Bayesian cable curl'] },
-      { id: 'l9', name: 'EZ-bar reverse grip curl', reps: [12, 12, 10], ss: 'H', ssPos: 1,
-        alts: ['Reverse cable curl', 'Reverse DB curl', 'Wrist roller'] },
-      { id: 'l10', name: 'Standing DB hammer curl', reps: [10, 10, 10], ss: 'H', ssPos: 2,
-        alts: ['Rope hammer curl', 'Cross-body hammer curl', 'Seated hammer curl'] }
+      { id: 'l10', name: 'Standing DB hammer curl', reps: [12, 12, '∞'],
+        alts: ['EZ-bar reverse grip curl', 'Rope hammer curl', 'Cross-body hammer curl'] }
     ]},
     legs: { label: 'Legs day', ex: [
       { id: 'g1', name: 'Barbell box squat', reps: [12, 10, 10, 8],
@@ -332,17 +334,19 @@
         alts: ['Barbell RDL', 'Cable pull-through', 'Light good morning'] },
       { id: 'g3', name: 'Leg press, medium stance', reps: [12, 12, 10],
         alts: ['Leg press, one leg at a time', 'Bulgarian split squat', 'Hack squat'] },
-      { id: 'g4', name: 'Lying hamstring curl', reps: [12, 10, 10],
+      { id: 'g4', name: 'Lying hamstring curl', reps: [12, 10, '∞'],
         alts: ['Seated hamstring curl', 'Assisted Nordic curl', 'Single-leg lying curl'] },
-      { id: 'g5', name: 'Single-leg extension', reps: [12, 12, 10],
+      { id: 'g5', name: 'Single-leg extension', reps: [12, 12, '∞'],
         alts: ['Both-leg extension', 'Sissy squat', 'Cyclist squat'] },
-      { id: 'g6', name: 'Abduction machine', reps: [12, 12, 10],
+      { id: 'g6', name: 'Abduction machine', reps: [12, 12, '∞'],
         alts: ['Abductor + adductor machine', 'Cable hip abduction', 'Banded lateral walk'] },
-      { id: 'g7', name: 'Seated calf raise machine', reps: [12, 12, 10],
+      { id: 'g7', name: 'Seated calf raise machine', reps: [12, 12, '∞'],
         alts: ['Standing calf raise', 'Leg press calf raise', 'Single-leg calf raise'] },
-      { id: 'g8', name: 'Plank', reps: [30, 30, 30], unit: 'sec', ss: 'H', ssPos: 1,
+      { id: 'g10', name: 'Hyperextension machine', reps: [12, 12, 12],
+        alts: ['45° hyperextension', 'Reverse hyperextension', 'Cable pull-through'] },
+      { id: 'g8', name: 'Plank', reps: [30, 30, '∞'], unit: 'sec', ss: 'H', ssPos: 1,
         alts: ['Suitcase carry', 'Pallof press', 'Side plank'] },
-      { id: 'g9', name: 'Decline sit-up', reps: [10, 10, 10], ss: 'H', ssPos: 2,
+      { id: 'g9', name: 'Decline sit-up', reps: [10, 10, '∞'], ss: 'H', ssPos: 2,
         alts: ['Machine crunch', 'Cable crunch', 'Hanging knee raise'] }
     ]}
   };
@@ -471,7 +475,7 @@
     PLAN[day].ex.forEach(function (e) {
       if (used[e.id]) return;
       if (e.ss) {
-        var letter = e.ss;
+        var letter = SERIES[li] || '?';
         PLAN[day].ex.forEach(function (o) {
           if (o.ss === e.ss) { map[o.id] = letter + o.ssPos; used[o.id] = 1; }
         });
@@ -548,7 +552,8 @@
     PLAN[day].ex.forEach(function (e) {
       var rows = d.ex[e.id] || [];
       rows.forEach(function (_, j) {
-        var work = e.unit === 'sec' ? (e.reps[j] || 30) : 40;
+        var t = parseInt(e.reps[j], 10);
+        var work = e.unit === 'sec' ? (isNaN(t) ? 45 : t) : 40;
         var r = (e.ss && e.ssPos === 1) ? REST_SS
               : (j === rows.length - 1 ? REST_EX : REST_SET);
         secs += work + r;
@@ -700,7 +705,8 @@
       '<div class="ovcell"><div class="ovnum">' + plan.ex.length + '</div><div class="ovlab">Exercises</div></div>' +
       '<div class="ovcell"><div class="ovnum">' + tot + '</div><div class="ovlab">Sets</div></div>' +
       '<div class="ovcell"><div class="ovnum">' + mins + '</div><div class="ovlab">Minutes</div></div>' +
-      '</div>';
+      '</div>' +
+      '<div class="legend"><span class="inf">\u221e</span> = last set to failure. Log the reps you actually got.</div>';
 
     plan.ex.forEach(function (e, i) {
       var prev = lastSetsFor(e.id, day);
@@ -718,7 +724,9 @@
       var vName = variantOf(e.id);
       var swapped = vName !== e.name;
       var unit = e.unit === 'sec' ? 's' : '';
-      var schemeStr = e.reps.join('  ');
+      var schemeStr = e.reps.map(function (v) {
+        return v === '\u221e' ? '<span class="inf">\u221e</span>' : v;
+      }).join('  ');
       var slabel = labels[e.id] || SERIES[i];
       var ssTag = e.ss ? '<span class="sstag">Superset</span>' : '';
       var opts = [e.name].concat(e.alts || []);
@@ -747,9 +755,10 @@
         var isLast = j === rows.length - 1;
         var defRest = (e.ss && e.ssPos === 1) ? REST_SS + 's' : (isLast ? REST_EX : REST_SET) + 's';
         var target = e.reps[j] !== undefined ? e.reps[j] : '';
+        var toFail = target === '\u221e';
         var pv = prev ? prev.sets[j] : null;
         var beat = s.done && beatsPrev(s, pv);
-        html += '<div class="row' + (isActive ? ' active' : '') + (s.done ? ' done' : '') + '">' +
+        html += '<div class="row' + (isActive ? ' active' : '') + (s.done ? ' done' : '') + (toFail ? ' tofail' : '') + '">' +
           '<input class="f" inputmode="numeric" data-ex="' + e.id + '" data-i="' + j + '" data-f="r" value="' + (s.r || '') + '" placeholder="' + (pv && num(pv.r) !== null ? pv.r : target) + '" aria-label="Reps set ' + (j + 1) + '">' +
           '<input class="f" inputmode="decimal" data-ex="' + e.id + '" data-i="' + j + '" data-f="w" value="' + (s.w || '') + '" placeholder="' + (pv && num(pv.w) !== null ? pv.w + ' kg' : 'kg') + '" aria-label="Weight set ' + (j + 1) + '">' +
           '<div class="restcell" data-rest="' + e.id + '-' + j + '" data-default="' + defRest + '">' + defRest + '</div>' +
