@@ -85,6 +85,10 @@
 
   /* ---------- exercise ---------- */
   .inf { color: #E2A33C; font-weight: 700; }
+  .exnote {
+    font-family: var(--mono); font-size: 11px; color: var(--blue);
+    margin-top: 4px; letter-spacing: .02em;
+  }
   .legend {
     font-family: var(--mono); font-size: 10.5px; color: var(--text-3);
     margin-top: 8px; padding: 0 2px; letter-spacing: .02em;
@@ -325,29 +329,27 @@
       { id: 'l8', name: 'Seated DB curl', reps: [12, 12, '∞'],
         alts: ['Incline DB curl', 'Preacher curl', 'Bayesian cable curl'] },
       { id: 'l10', name: 'Standing DB hammer curl', reps: [12, 12, '∞'],
-        alts: ['EZ-bar reverse grip curl', 'Rope hammer curl', 'Cross-body hammer curl'] }
+        alts: ['EZ-bar reverse grip curl', 'Rope hammer curl', 'Cross-body hammer curl'] },
+      { id: 'l11', name: 'Shoulder shrug', reps: [15, 12, '∞'],
+        alts: ['Barbell shrug', 'Smith machine shrug', 'Trap bar shrug', 'Cable shrug'] }
     ]},
     legs: { label: 'Legs day', ex: [
+      { id: 'g12', name: 'Deadlift', reps: [8, 8, 6], note: 'Pick by how you feel: deadlift 8\u00b78\u00b76 \u00b7 RDL or hyperextension 12\u00b712\u00b710',
+        alts: ['DB Romanian deadlift', 'Barbell RDL', 'Hyperextension machine', 'Trap bar deadlift', 'Half deadlift / rack pull'] },
       { id: 'g1', name: 'Barbell box squat', reps: [12, 10, 10, 8],
         alts: ['Barbell heels-elevated squat', 'Hack squat', 'Smith box squat', 'Leg press, both legs'] },
-      { id: 'g2', name: 'DB Romanian deadlift', reps: [12, 12, 10],
-        alts: ['Barbell RDL', 'Cable pull-through', 'Light good morning'] },
       { id: 'g3', name: 'Leg press, medium stance', reps: [12, 12, 10],
         alts: ['Leg press, one leg at a time', 'Bulgarian split squat', 'Hack squat'] },
-      { id: 'g4', name: 'Lying hamstring curl', reps: [12, 10, '∞'],
+      { id: 'g11', name: 'Barbell hip thrust', reps: [12, 12, 10],
+        alts: ['Machine hip thrust', 'Single-leg hip thrust', 'Glute bridge', 'Cable pull-through'] },
+      { id: 'g4', name: 'Lying hamstring curl', reps: [12, 10, '\u221e'],
         alts: ['Seated hamstring curl', 'Assisted Nordic curl', 'Single-leg lying curl'] },
-      { id: 'g5', name: 'Single-leg extension', reps: [12, 12, '∞'],
+      { id: 'g5', name: 'Single-leg extension', reps: [12, 12, '\u221e'],
         alts: ['Both-leg extension', 'Sissy squat', 'Cyclist squat'] },
-      { id: 'g6', name: 'Abduction machine', reps: [12, 12, '∞'],
-        alts: ['Abductor + adductor machine', 'Cable hip abduction', 'Banded lateral walk'] },
-      { id: 'g7', name: 'Seated calf raise machine', reps: [12, 12, '∞'],
-        alts: ['Standing calf raise', 'Leg press calf raise', 'Single-leg calf raise'] },
-      { id: 'g10', name: 'Hyperextension machine', reps: [12, 12, 12],
-        alts: ['45° hyperextension', 'Reverse hyperextension', 'Cable pull-through'] },
-      { id: 'g8', name: 'Plank', reps: [30, 30, '∞'], unit: 'sec', ss: 'H', ssPos: 1,
-        alts: ['Suitcase carry', 'Pallof press', 'Side plank'] },
-      { id: 'g9', name: 'Decline sit-up', reps: [10, 10, '∞'], ss: 'H', ssPos: 2,
-        alts: ['Machine crunch', 'Cable crunch', 'Hanging knee raise'] }
+      { id: 'g6', name: 'Abductor + adductor machine', reps: [12, 12, 12, 12], note: '2 sets outward, 2 sets inward',
+        alts: ['Abduction only', 'Cable hip abduction', 'Copenhagen plank'] },
+      { id: 'g7', name: 'Seated calf raise machine', reps: [12, 12, '\u221e'],
+        alts: ['Standing calf raise', 'Leg press calf raise', 'Single-leg calf raise'] }
     ]}
   };
 
@@ -745,6 +747,7 @@
         '<div class="exhead"><div style="flex:1"><h2 class="exname">' + esc(vName) + '</h2>' +
         '<div class="exspec">Reps: <b>' + schemeStr + '</b>' + (unit ? ' ' + unit : '') +
         (swapped ? ' · SWAPPED' : '') + '</div>' +
+        (e.note ? '<div class="exnote">' + esc(e.note) + '</div>' : '') +
         '<div class="prevline"><span class="prevlabel">Beat</span>' + pills + '</div></div>' +
         '<button class="swapbtn' + (open ? ' open' : '') + '" data-swap="' + e.id + '" aria-label="Swap exercise">⇅</button>' +
         '</div>' + panel +
